@@ -1,4 +1,4 @@
-Swallow the work-hard pill
-here's a song to listen to while grinding
+Swallow the work-hard pill\n
+here's a song to listen to while grinding\n
 
 https://open.spotify.com/track/49vmMTdjoIaCTZThH4VyW3?si=4d26ceefe23d4505
