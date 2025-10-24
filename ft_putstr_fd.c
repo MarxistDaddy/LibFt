@@ -6,7 +6,7 @@
 /*   By: hamaarab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 22:39:24 by hamaarab          #+#    #+#             */
-/*   Updated: 2025/10/22 14:05:48 by hamaarab         ###   ########.fr       */
+/*   Updated: 2025/10/22 22:14:15 by hamaarab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	write(fd, s, ft_strlen(s));
 }

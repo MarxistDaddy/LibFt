@@ -6,7 +6,7 @@
 /*   By: hamaarab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 18:07:03 by hamaarab          #+#    #+#             */
-/*   Updated: 2025/10/21 22:01:42 by hamaarab         ###   ########.fr       */
+/*   Updated: 2025/10/23 12:46:31 by hamaarab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst)
 		while (lst->next)
-			lst = (*lst).next;
+			lst = lst->next;
 	return (lst);
 }

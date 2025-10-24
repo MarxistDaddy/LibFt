@@ -6,7 +6,7 @@
 /*   By: hamaarab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 16:35:17 by hamaarab          #+#    #+#             */
-/*   Updated: 2025/10/21 21:55:15 by hamaarab         ###   ########.fr       */
+/*   Updated: 2025/10/22 16:03:43 by hamaarab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!(*lst) || !new)
+	if (!lst || !new)
 		return ;
 	(*new).next = *lst;
 	*lst = new;

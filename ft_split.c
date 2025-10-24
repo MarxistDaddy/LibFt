@@ -6,13 +6,13 @@
 /*   By: hamaarab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 17:40:01 by hamaarab          #+#    #+#             */
-/*   Updated: 2025/10/18 19:59:22 by hamaarab         ###   ########.fr       */
+/*   Updated: 2025/10/23 14:47:33 by hamaarab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t	word_len(char const *str, char c)
+static size_t	word_len(char const *str, char c)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ static	size_t	word_len(char const *str, char c)
 	return (i);
 }
 
-static	size_t	word_count(char const *str, char c)
+static size_t	word_count(char const *str, char c)
 {
 	size_t	i;
 	size_t	len;
@@ -42,7 +42,7 @@ static	size_t	word_count(char const *str, char c)
 	return (count);
 }
 
-static	char	*ft_strldup(char const *str, int len)
+static char	*ft_strldup(char const *str, int len)
 {
 	size_t	i;
 	char	*dest;
@@ -63,27 +63,47 @@ static	char	*ft_strldup(char const *str, int len)
 	return (dest);
 }
 
-char	**ft_split(char const *s, char c)
+static	int	make_split(char **dest, const char *s, char c, size_t words)
 {
 	size_t	i;
 	size_t	len;
+
+	i = 0;
+	while (*s && i < words)
+	{
+		while (*s && *s == c)
+			s++;
+		len = word_len(s, c);
+		if (len)
+		{
+			dest[i] = ft_strldup(s, len);
+			if (!dest[i])
+			{
+				while (i--)
+					free(dest[i]);
+				return (0);
+			}
+			i++;
+		}
+		s += len;
+	}
+	dest[i] = 0;
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
+{
 	size_t	words;
 	char	**dest;
 
-	i = 0;
 	words = word_count(s, c);
 	dest = malloc(sizeof(char *) * (words + 1));
 	if (!dest)
 		return (NULL);
-	while (*s && i < words)
+	if (!make_split(dest, s, c, words))
 	{
-		if (*s == c)
-			s++;
-		len = word_len(s, c);
-		if (len)
-			dest[i++] = ft_strldup(s, len);
-		s += len;
+		free(dest);
+		return (NULL);
 	}
-	dest[i] = 0;
 	return (dest);
 }
