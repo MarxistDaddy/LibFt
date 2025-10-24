@@ -32,7 +32,7 @@ static size_t	word_count(char const *str, char c)
 	count = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
+		while (str[i] == c)
 			i++;
 		len = word_len(&str[i], c);
 		if (len)
