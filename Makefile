@@ -20,7 +20,7 @@ clean:
 	rm -rf $(OBJS) $(OBJS_B)
 
 fclean: clean
-	rm -rf $(NAME) $(BONUS)
+	rm -rf $(NAME)
 
 re: fclean all
 
